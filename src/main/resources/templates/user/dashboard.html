@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title data-th-text="${loggedInUser.name}+' |  Dashboard'">
+      Profile Page
+    </title>
+  </head>
+  <body>
+    <div id="content">
+      <!-- Dashboard Header -->
+      <div class="mb-6 pt-10">
+        <h1 class="text-3xl text-center font-bold text-gray-900 dark:text-white">Dashboard</h1>
+        <p class="pt-3 text-center text-gray-600 dark:text-gray-300">Welcome back, <span data-th-text="${loggedInUser.name}"></span>! Here’s a summary of your activity.</p>
+      </div>
+    
+      <!-- Overview Cards -->
+      <div class="grid grid-cols-1 text-center gap-4 mb-6">
+        <!-- Card 1 -->
+        <div class=" dark:bg-gray-900 shadow rounded-lg p-4">
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Total Contacts</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-3xl font-bold"><span data-th-text="${loggedInUser.contacts.size()}"></span></p>
+        </div>
+        <!-- Card 2 -->
+        <!-- <div class=" dark:bg-gray-900 shadow rounded-lg p-4">
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Messages</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-3xl font-bold">567</p>
+        </div> -->
+        <!-- Card 3 -->
+        <!-- <div class=" dark:bg-gray-900 shadow rounded-lg p-4">
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Recent Activity</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-3xl font-bold">12</p>
+        </div> -->
+      </div>
+    
+      <!-- Recent Activity -->
+      <!-- <div class=" dark:bg-gray-900 shadow rounded-lg p-4 mb-6">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Recent Activity</h2>
+        <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+          <li class="py-3 flex items-center justify-between">
+            <span class="text-gray-900 dark:text-white">Added a new contact</span>
+            <span class="text-gray-600 dark:text-gray-300">2 hours ago</span>
+          </li>
+          <li class="py-3 flex items-center justify-between">
+            <span class="text-gray-900 dark:text-white">Sent a message to John Doe</span>
+            <span class="text-gray-600 dark:text-gray-300">1 day ago</span>
+          </li>
+          <li class="py-3 flex items-center justify-between">
+            <span class="text-gray-900 dark:text-white">Updated profile picture</span>
+            <span class="text-gray-600 dark:text-gray-300">3 days ago</span>
+          </li>
+        </ul>
+      </div> -->
+    
+      <!-- Chart Section (Optional) -->
+      <!-- <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Activity Overview</h2>
+        <div class="mt-4"> -->
+          <!-- Example chart placeholder -->
+          <!-- <div class="w-full h-64 bg-gray-200 dark:bg-gray-700 rounded-lg"> -->
+            <!-- Chart would be rendered here -->
+            <!-- <p class="text-center text-gray-500 dark:text-gray-400 pt-24">Chart Placeholder</p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    
+
+    <script>
+      console.log("this is profile page");
+    </script>
+  </body>
+</html>
