@@ -1,5 +1,5 @@
 # Use a Maven image to build the project
-FROM maven:3.8.6-openjdk-21 AS build
+FROM maven:3.8.6-jdk-21 AS build
 
 # Set the working directory
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY src ./src
 RUN mvn clean package
 
 # Use a smaller JDK image to run the JAR
-FROM openjdk:21-jdk-slim
+FROM openjdk:21-jdk
 
 # Set the working directory
 WORKDIR /app
