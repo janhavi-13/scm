@@ -17,6 +17,9 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
+# Verify Maven installation
+RUN mvn --version
+
 # Build the project
 RUN mvn clean package -DskipTests
 
