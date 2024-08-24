@@ -1,6 +1,5 @@
-# Use a Maven image to build the project
-FROM adoptopenjdk:21-jdk-hotspot
-
+# Use a Maven image with JDK 21 for building the project
+FROM maven:3.8.6-openjdk-21 AS build
 
 # Set the working directory
 WORKDIR /app
