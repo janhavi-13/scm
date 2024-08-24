@@ -1,11 +1,14 @@
 # Stage 1: Build the project
 FROM openjdk:21-jdk AS build
 
-# Install Maven
+# Install Maven dependencies and tools
 RUN apt-get update && apt-get install -y wget unzip \
+    # Download and install Maven
     && wget https://downloads.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip \
     && unzip apache-maven-3.9.1-bin.zip -d /opt \
-    && ln -s /opt/apache-maven-3.9.1/bin/mvn /usr/bin/mvn
+    && ln -s /opt/apache-maven-3.9.1/bin/mvn /usr/bin/mvn \
+    # Clean up
+    && rm apache-maven-3.9.1-bin.zip
 
 # Set the working directory
 WORKDIR /app
