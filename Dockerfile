@@ -1,15 +1,11 @@
 # Stage 1: Build the project
-FROM maven:3.9.1-openjdk-17 AS build
+FROM openjdk:21-jdk AS build
 
-# Install OpenJDK 21
-RUN apt-get update && apt-get install -y wget \
-    && wget https://download.java.net/java/GA/jdk21/35/ndk21-linux-x64_bin.tar.gz \
-    && tar -xzf jdk-21_linux-x64_bin.tar.gz -C /opt \
-    && update-alternatives --install /usr/bin/java java /opt/jdk-21/bin/java 1 \
-    && update-alternatives --install /usr/bin/javac javac /opt/jdk-21/bin/javac 1
-
-# Set JAVA_HOME
-ENV JAVA_HOME=/opt/jdk-21
+# Install Maven
+RUN apt-get update && apt-get install -y wget unzip \
+    && wget https://downloads.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip \
+    && unzip apache-maven-3.9.1-bin.zip -d /opt \
+    && ln -s /opt/apache-maven-3.9.1/bin/mvn /usr/bin/mvn
 
 # Set the working directory
 WORKDIR /app
