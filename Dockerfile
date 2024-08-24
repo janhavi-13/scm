@@ -1,19 +1,20 @@
-# Use a base image with Maven and JDK 21
-FROM maven:3.9.9-eclipse-temurin-21 AS build
+# Use a Maven image to build the project
+FROM maven:3.8.6-openjdk-21 AS build
 
-# Set the working directory for the build process
+# Set the working directory
 WORKDIR /app
 
-# Copy the entire project to the working directory
-COPY . .
+# Copy the pom.xml and source code
+COPY pom.xml .
+COPY src ./src
 
-# Build the project to generate the JAR file
+# Build the project
 RUN mvn clean package
 
-# Use a smaller base image for the final build
+# Use a smaller JDK image to run the JAR
 FROM openjdk:21-jdk-slim
 
-# Set the working directory for the final image
+# Set the working directory
 WORKDIR /app
 
 # Copy the JAR file from the build stage
