@@ -92,8 +92,8 @@
             <configuration>
 				<argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
                 <includes>
-                    <include>**/*Test.java</include>
-                    <include>**/*Tests.java</include>
+                    <exclude>**/*Test.java</exclude>
+                    <exclude>**/*Tests.java</exclude>
                 </includes>
             </configuration>
         </plugin>
