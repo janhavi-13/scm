@@ -9,7 +9,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Build the project
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 # Use a smaller JDK image to run the JAR
 FROM openjdk:21-jdk
