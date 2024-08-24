@@ -11,7 +11,8 @@ COPY . .
 RUN mvn clean package
 
 # Use a smaller base image for the final build
-FROM openjdk:21-jdk-alpine
+FROM openjdk:21-jdk
+
 
 # Set the working directory for the final image
 WORKDIR /app
