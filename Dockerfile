@@ -1,5 +1,6 @@
 # Use a Maven image with a more common JDK version
-FROM maven:3.8.6-openjdk-11 AS build
+FROM maven:3.9.1-openjdk-21 AS build
+
 
 # Set the working directory
 WORKDIR /app
