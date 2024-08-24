@@ -1,5 +1,9 @@
-# Use a Maven image with JDK 21 for building the project
-FROM maven:3.8.6-openjdk-21 AS build
+# Use a Maven image (e.g., Maven with OpenJDK 17)
+FROM maven:3.8.6-openjdk-17 AS build
+
+# Install OpenJDK 21
+RUN apt-get update && \
+    apt-get install -y openjdk-21-jdk
 
 # Set the working directory
 WORKDIR /app
